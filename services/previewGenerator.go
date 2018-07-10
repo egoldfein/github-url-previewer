@@ -22,8 +22,8 @@ type Client interface {
 
 // GetPreview generates link preview link
 func GetPreview(linkPreviewAccessKey string, url string) string {
-	urlStr := fmt.Sprintf("http://api.linkpreview.net/?key=%v&q=%v", linkPreviewAccessKey, url)
-	req, err := http.NewRequest(http.MethodGet, urlStr, nil)
+	linkPreviewURL := fmt.Sprintf("http://api.linkpreview.net/?key=%v&q=%v", linkPreviewAccessKey, url)
+	req, err := http.NewRequest(http.MethodGet, linkPreviewURL, nil)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -40,5 +40,5 @@ func GetPreview(linkPreviewAccessKey string, url string) string {
 		log.Fatalf("Error decoding json: %v", err)
 	}
 
-	return fmt.Sprintf("%s: %s (%s)", response.Title, response.Description, response.URL)
+	return fmt.Sprintf("<b>%s</b>: %s (%s)", response.Title, response.Description, response.URL)
 }
