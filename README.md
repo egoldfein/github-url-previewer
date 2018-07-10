@@ -10,10 +10,4 @@
 - run go build and then ./github-url-previewer to run
 
 
-Testing adding lots of links: www.google.com
 
-here
-
-https://www.gmail.com
-
-https://localhost:8080
