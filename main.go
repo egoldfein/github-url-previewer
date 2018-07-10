@@ -54,18 +54,22 @@ func HandlePullRequest(payload interface{}, header webhooks.Header) {
 	client := github.NewClient(tc)
 
 	pl := payload.(ghub.PullRequestPayload)
-	urls := xurls.Relaxed().FindAllString(pl.PullRequest.Body, -1)
 
-	for i := range urls {
+	// ensures comments are only added when a PR is opened
+	if pl.Action == "opened" {
+		urls := xurls.Relaxed().FindAllString(pl.PullRequest.Body, -1)
 
-		str := services.GetPreview(cfg.LinkPreviewAccessKey, urls[i])
-		newPRComment := &github.IssueComment{
-			Body: &str,
-		}
+		for i := range urls {
 
-		_, _, err = client.Issues.CreateComment(ctx, pl.PullRequest.User.Login, pl.PullRequest.Head.Repo.Name, int(pl.PullRequest.Number), newPRComment)
-		if err != nil {
-			log.Fatalf("Error creating PR Comment: %v", err)
+			str := services.GetPreview(cfg.LinkPreviewAccessKey, urls[i])
+			newPRComment := &github.IssueComment{
+				Body: &str,
+			}
+
+			_, _, err = client.Issues.CreateComment(ctx, pl.PullRequest.User.Login, pl.PullRequest.Head.Repo.Name, int(pl.PullRequest.Number), newPRComment)
+			if err != nil {
+				log.Fatalf("Error creating PR Comment: %v", err)
+			}
 		}
 	}
 }
