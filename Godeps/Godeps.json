@@ -1,0 +1,44 @@
+{
+	"ImportPath": "github.com/InVisionApp/github-url-previewer",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/caarlos0/env",
+			"Comment": "v3.3.0-4-g3e0f30c",
+			"Rev": "3e0f30cbf50bb82273cf60e7bb70869f4852e9b8"
+		},
+		{
+			"ImportPath": "github.com/joho/godotenv",
+			"Comment": "v1.2.0-12-g1709ab1",
+			"Rev": "1709ab122c988931ad53508747b3c061400c2984"
+		},
+		{
+			"ImportPath": "github.com/sirupsen/logrus",
+			"Comment": "v1.0.4-9-g8c0189d",
+			"Rev": "8c0189d9f6bbf301e5d055d34268156b317016af"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh/terminal",
+			"Rev": "650f4a345ab4e5b245a3034b110ebc7299e68186"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "56ede360ec1c541828fb88741b3f1049406d28f5"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/windows",
+			"Rev": "56ede360ec1c541828fb88741b3f1049406d28f5"
+		},
+		{
+			"ImportPath": "gopkg.in/go-playground/webhooks.v4",
+			"Comment": "v4.0.0",
+			"Rev": "e4aa8cba6c4dabc5eaabdff22528ba603b40fb03"
+		},
+		{
+			"ImportPath": "gopkg.in/go-playground/webhooks.v4/github",
+			"Comment": "v4.0.0",
+			"Rev": "e4aa8cba6c4dabc5eaabdff22528ba603b40fb03"
+		}
+	]
+}

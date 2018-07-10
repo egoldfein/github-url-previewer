@@ -8,6 +8,7 @@ import (
 	"github.com/InVisionApp/github-url-previewer/config"
 	"gopkg.in/go-playground/webhooks.v4"
 	"gopkg.in/go-playground/webhooks.v4/github"
+	"mvdan.cc/xurls"
 )
 
 const (
@@ -22,6 +23,7 @@ func main() {
 		log.Fatalf("Failure loading ENV vars: %v", err)
 	}
 
+	fmt.Println(cfg.GithubToken)
 	hook := github.New(&github.Config{Secret: cfg.GithubToken})
 	hook.RegisterEvents(HandlePullRequest, github.PullRequestEvent)
 
@@ -38,6 +40,9 @@ func HandlePullRequest(payload interface{}, header webhooks.Header) {
 
 	pl := payload.(github.PullRequestPayload)
 
-	// Do whatever you want from here...
-	fmt.Printf("%+v", pl)
+	urls := xurls.Relaxed().FindAllString(pl.PullRequest.Body, -1)
+	for i := range urls {
+		fmt.Printf("%s", urls[i])
+		fmt.Println("")
+	}
 }
