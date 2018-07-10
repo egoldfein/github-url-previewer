@@ -8,5 +8,6 @@
 # Running locally
 
 - run go build and then ./github-url-previewer to run
+- edit a file in the repo and create a PR for the change
+- once the PR has been created, the comments will be added automatically 
 
-testing updating readme
