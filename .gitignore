@@ -1,2 +1,5 @@
 # Ignoring any environment.env files
 environment.env
+
+# Ignoring build files
+build/*

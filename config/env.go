@@ -20,7 +20,9 @@ var LogFormats = map[string]logrus.Formatter{
 
 // Envs is the struct for declaring all the envs
 type Envs struct {
-	GithubToken string `env:"GITHUB_TOKEN"`
+	GithubToken               string `env:"GITHUB_TOKEN"`
+	LinkPreviewAccessKey      string `env:"LINK_PREVIEW_ACCESS_KEY"`
+	GithubPersonalAccessToken string `env:"GITHUB_PERSONAL_TOKEN"`
 }
 
 // LoadEnvs loads the envs and checks which ones are mandatory
