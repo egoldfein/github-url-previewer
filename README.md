@@ -8,5 +8,3 @@
 # Running locally
 
 - run go build and then ./github-url-previewer to run
-
-testing testing
