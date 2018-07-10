@@ -2,8 +2,10 @@
 
 # Setup
 
-- add a webhook for the repo and generate a secret token
-- create an environment.env file using the environment.env.template file as a template and add the secret token
+- add a webhook for the repo in Github and generate a secret token
+- generate a personal access token in Github
+- generate a key for accessing the Link Preview API: https://my.linkpreview.net/
+- create an environment.env file using the environment.env.template file as a template and add the secret token, the personal access token, and the access key for the Link Preview API to their respective spots
 
 # Running locally
 
